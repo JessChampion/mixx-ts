@@ -51,8 +51,3 @@ See the section about [deployment](README_CREATE_REACT_APP.md/#deployment) for m
 
 **NOTE: make sure to run `npm run postcss` first**
 
-## Styling
-### PostCss Plugins
-
-* http://cssnext.io/
-* https://github.com/postcss/postcss-nested
