@@ -2,13 +2,13 @@
   "name": "mixx",
   "version": "0.1.0",
   "private": true,
+  "author": "Jess Champion",
   "dependencies": {
     "@types/node": "^7.0.22",
     "@types/ramda": "0.0.10",
     "@types/react": "^15.0.25",
     "@types/react-dom": "^15.5.0",
     "@types/react-router": "^4.0.9",
-    "@types/redux": "^3.6.0",
     "es6-promise": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
     "ramda": "^0.24.0",
@@ -20,12 +20,18 @@
   "devDependencies": {
     "@types/jest": "^19.2.3",
     "jest": "^20.0.4",
+    "postcss": "^6.0.1",
+    "postcss-cssnext": "^2.11.0",
+    "postcss-nested": "^2.0.2",
+    "postcss-scss": "^1.0.0",
     "react-scripts-ts": "2.2.0",
     "tslint": "^5.3.2",
     "tslint-react": "^3.0.0",
     "typescript": "^2.3.3"
   },
   "scripts": {
+    "postcss": "postcss src/*.pcss src/**/*.pcss -c postcss.config.js --ext 'css' --replace",
+    "postcss:watch": "postcss src/*.pcss src/**/*.pcss -c postcss.config.js --ext 'css' --replace",
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
