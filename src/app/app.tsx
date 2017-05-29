@@ -1,20 +1,24 @@
+import {createBrowserHistory} from 'history';
 import * as React from 'react';
-import './app.css';
+import {Route, Router, Switch} from 'react-router';
 
-const logo = require('./logo.svg');
+import './app.css';
+import LoginView from './views/loginView';
+import MainView from './views/mainView';
+import NotFoundView from './views/notFoundView';
 
 class App extends React.Component<{}, null> {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <Router history={createBrowserHistory()}>
+        <div className="app-wrapper">
+          <Switch>
+            <Route exact={true} path="/" component={MainView}/>
+            <Route path="/login" component={LoginView}/>
+            <Route component={NotFoundView}/>
+          </Switch>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      </Router>
     );
   }
 }
