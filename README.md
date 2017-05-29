@@ -3,10 +3,27 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## TODO
-
+- ~~Setup postcss~~
 - Intergrate post css with webpack.
-    This will involve ejecting create-react-app so will put up with seperate configuration for now.
+    *This will involve ejecting create-react-app so will put up with seperate configuration for now.*
 - Bring over original mix code.
+    - ~~Router~~
+    - Section component
+    - SearchForm
+    - SearchResults
+    - Seeds
+    - CreateButton
+    - Playlist
+    - SavePlaylist
+- Setup Store
+- Restore the store from storeage (lol.).
+- New Styling
+    - Login
+    - 404s
+    - Main
+        - Header
+        - Section
+
 
 
 ## TECHNICAL DOCUMENTATION
