@@ -37,6 +37,7 @@
 //   }
 // };
 import * as React from 'react';
+import './mainView.css';
 
 export default class Main extends React.Component<any, any> {
   render() {
@@ -44,7 +45,7 @@ export default class Main extends React.Component<any, any> {
       <div className="mainView">
         <div className="headerBar">
           <div className="header section">
-            <h1>MIX MAIN</h1>
+            <h1>MIX</h1>
           </div>
         </div>
       </div>

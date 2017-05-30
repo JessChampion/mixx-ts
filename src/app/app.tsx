@@ -11,7 +11,7 @@ class App extends React.Component<{}, null> {
   render() {
     return (
       <Router history={createBrowserHistory()}>
-        <div className="app-wrapper">
+        <div className="appWrapper">
           <Switch>
             <Route exact={true} path="/" component={MainView}/>
             <Route path="/login" component={LoginView}/>
