@@ -1,10 +1,20 @@
 @import 'variables.pcss';
 
-body {
+html, body, #root {
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Quicksand', Arial, sans-serif;
+  overflow: hidden;
+}
+
+body {
+  margin: -2rem 0;
+  padding: 2rem 0;
+  width: 100%;
+  height: 100%;
   font-size: 15px;
+  font-family: 'Quicksand', Arial, sans-serif;
+  line-height: 1.4;
   background: var(--colour-black);
   color: var(--colour-white);
 }
