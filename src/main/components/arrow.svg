@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     preserveAspectRatio="xMidYMid meet"
+     viewBox="0 0 45 25" width="45" height="25">
+    <defs>
+        <path d="M42.6 2.25C43.13 2.25 43.38 2.88 43.01 3.25C38.91 7.23 27.34 18.47 23.17 22.53C22.81 22.88 22.24 22.88 21.88 22.53C17.7 18.47 6.14 7.24 2.05 3.26C1.67 2.89 1.93 2.25 2.46 2.25C10.78 2.25 34.28 2.25 42.6 2.25Z"
+              id="arrow"></path>
+    </defs>
+        <use xlink:href="#arrow" opacity="1" fill-opacity="0" stroke="#fff" stroke-width="3"
+             stroke-opacity="1">
+        </use>
+</svg>

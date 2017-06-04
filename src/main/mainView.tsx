@@ -38,9 +38,9 @@
 // };
 import * as React from 'react';
 
-import './mainView.css';
+import '../login/mainView.css';
 
-import Section from '../components/SectionComponent';
+import Section from './components/Section';
 
 export default class Main extends React.Component<any, any> {
   render() {
@@ -51,9 +51,9 @@ export default class Main extends React.Component<any, any> {
             <h1>MIX</h1>
           </div>
         </div>
-        <SectionContainer id="searchView" title="Add seed tracks">
+        <Section id="searchView" title="Add seed tracks">
           <p>Some content</p>
-        </SectionContainer>
+        </Section>
       </div>
     );
   }

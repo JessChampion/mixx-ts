@@ -1,14 +1,17 @@
 import * as R from 'ramda';
 import * as React from 'react';
 
-interface ISectionComponentProps {
-  id: string;
-  expanded: boolean;
-  title: string;
-  toggleEvent: any;
-}
+import './section.css';
 
-export default class SectionComponent extends React.Component<ISectionComponentProps, any> {
+// interface ISectionProps {
+//   id: string;
+//   title: string;
+//   expanded: boolean;
+//   toggleHandler: any;
+//   children?: any;
+// }
+
+export default class SectionComponent extends React.Component<any, any> {
   renderContent(children: any) {
     return (
       <div className="section-body">
@@ -34,11 +37,11 @@ export default class SectionComponent extends React.Component<ISectionComponentP
       expanded,
       id,
       title,
-      toggleEvent
+      toggleHandler
     }: any = this.props;
 
     const classes = id + ' section collapsible';
-    const toggle = this.renderToggle(expanded, toggleEvent);
+    const toggle = this.renderToggle(expanded, toggleHandler);
     const content = expanded ? this.renderContent(children) : '';
     return (
       <section className={classes} id={id}>

@@ -1,0 +1,42 @@
+@import '../../variables.pcss';
+
+.section {
+  width: calc(100% - 2.1rem);
+  max-width: 50rem;
+  height: 100%;
+  margin: 0.5rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--colour-white);
+  border-radius: 0.5rem;
+
+  @media screen and (min-width: 50rem) {
+    width: calc(100% - 0.5rem);
+    margin: 0.5rem auto;
+    padding: 0;
+  }
+
+  .section-header {
+    position: relative;
+    padding: 0.25rem 0.75rem 0.5rem;
+    h2 {
+      display: inline-block;
+      margin: 0;
+    }
+    .toggle {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0.5rem 0.25rem;
+      //i.collapsed::after {
+      .toggle-icon {
+        display: inline-block;
+        width: 2rem;
+        height: 1.5rem;
+        background: transparent url('./arrow.svg') no-repeat center / contain;
+      }
+    }
+  }
+  .section-body {
+    padding: 0.5rem 0.75rem;
+  }
+}

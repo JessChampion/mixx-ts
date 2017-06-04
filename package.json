@@ -9,6 +9,7 @@
     "@types/ramda": "0.0.10",
     "@types/react": "^15.0.25",
     "@types/react-dom": "^15.5.0",
+    "@types/react-redux": "^4.4.41",
     "@types/react-router": "^4.0.9",
     "es6-promise": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
@@ -16,6 +17,7 @@
     "ramda": "^0.24.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "redux": "^3.6.0"
   },
@@ -35,8 +37,8 @@
     "typescript": "^2.3.3"
   },
   "scripts": {
-    "postcss": "postcss src/*.pcss src/**/*.pcss src/**/**/*.pcss -c postcss.config.js --ext 'css' --replace",
-    "postcss:watch": "postcss src/*.pcss src/**/*.pcss src/**/**/*.pcss -c postcss.config.js --ext 'css' --replace --watch",
+    "postcss": "postcss src/*.pcss src/**/*.pcss src/**/**/*.pcss src/**/**/**/*.pcss -c postcss.config.js --ext 'css' --replace",
+    "postcss:watch": "postcss src/*.pcss src/**/*.pcss src/**/**/*.pcss src/**/**/**/*.pcss -c postcss.config.js --ext 'css' --replace --watch",
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
