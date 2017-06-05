@@ -27,12 +27,15 @@
       top: 0;
       right: 0;
       padding: 0.5rem 0.25rem;
-      //i.collapsed::after {
       .toggle-icon {
         display: inline-block;
         width: 2rem;
         height: 1.5rem;
         background: transparent url('./arrow.svg') no-repeat center / contain;
+        transform: rotate(180deg);
+        &.collapsed {
+          transform: rotate(0);
+        }
       }
     }
   }
