@@ -4,6 +4,7 @@
   "private": true,
   "author": "Jess Champion",
   "dependencies": {
+    "@types/isomorphic-fetch": "0.0.34",
     "@types/node": "^7.0.22",
     "@types/prop-types": "^15.5.1",
     "@types/ramda": "0.0.10",
