@@ -38,7 +38,7 @@
 // };
 import * as React from 'react';
 
-import '../login/mainView.css';
+import './mainView.css';
 
 import Section from './components/Section';
 

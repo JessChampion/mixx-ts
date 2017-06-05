@@ -5,15 +5,17 @@ export interface IMainState {
   sections: any;
 }
 
-const registerSection = (state: any, sectionId: string, expanded: boolean = true) => {
-  return R.ifElse(R.has(sectionId), R.identity, R.assoc(sectionId, expanded))(state);
-};
+const getSetter: any =  (sectionId: string) => R.assocPath(['sections', sectionId]);
 
+const registerSection = (state: any, sectionId: string, expanded: boolean = true) => {
+  return R.ifElse(R.has(sectionId), R.identity, R.assocPath(['sections', sectionId])(expanded))(state);
+};
 const toggleSection = (state: any, sectionId: string, expanded: boolean) => {
+  const invertExp = R.compose(R.not, R.path(['sections', sectionId]));
+  const setter = getSetter(sectionId);
   return R.ifElse(R.always(R.isNil(expanded)),
-    R.converge(R.assoc(sectionId), [R.compose(R.not, R.prop(sectionId)), R.identity]) as any,
-    R.assoc(sectionId, expanded)
-  )(state);
+    R.converge(setter, [invertExp, R.identity]) as R.Arity1Fn,
+    setter(expanded))(state);
 };
 
 export default function mainReducer(state: IMainState = {sections: {}}, action: any): IMainState {

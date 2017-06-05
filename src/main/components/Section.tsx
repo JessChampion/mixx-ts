@@ -27,7 +27,7 @@ const getProps = R.converge(R.merge, [getBaseProps, getToggleHandler]);
 
 const mapStateToProps = (state: any, ownProps: any) => {
   const id: string = ownProps.id;
-  const exp: boolean = R.pathOr(true, ['main', id])(state);
+  const exp: boolean = R.pathOr(true, ['main', 'sections', id])(state);
   return {expanded: exp};
 };
 

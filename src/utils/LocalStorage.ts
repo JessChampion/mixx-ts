@@ -20,7 +20,6 @@ function saveToLocalStorage(key: string, value: any) {
 }
 
 const doParse = (str: any) => {
-  console.log('PARSE: ' + str);
   if (!str) {
     return {};
   }
@@ -28,7 +27,6 @@ const doParse = (str: any) => {
 };
 
 const doStringify = (json: any) => {
-  console.log('STRINGIFY: ' + json);
   return JSON.stringify(json);
 };
 
