@@ -2,7 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 
 import {searchSpotify} from './actions';
-import SearchFormComponent from './SearchFormComponent';
+import SearchFormComponent from './components/SearchFormComponent';
 
 interface IDispatchProps {
   onSearch: any;

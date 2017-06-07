@@ -33,7 +33,6 @@
     "postcss-color-function": "^4.0.0",
     "postcss-custom-properties": "^6.0.1",
     "postcss-font-magician": "^1.6.1",
-    "postcss-normalize": "^3.0.0",
     "postcss-smart-import": "^0.6.12",
     "precss": "^1.4.0",
     "react-scripts-ts": "^2.2.0",

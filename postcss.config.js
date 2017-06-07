@@ -6,7 +6,6 @@ module.exports = {
     require('precss')(),
     require('postcss-calc')(),
     require('postcss-color-function')(),
-    require('postcss-normalize')(),
     require('postcss-font-magician')({
       hosted: ['./public/fonts', '/fonts'],
       variants: {

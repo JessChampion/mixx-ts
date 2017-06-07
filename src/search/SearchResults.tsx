@@ -53,7 +53,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 
 // import {registerSection, toggleSection} from '../actions';
-import SearchResultsComponent from './SearchResultsComponent';
+import SearchResultsComponent from './components/SearchResultsComponent';
 
 interface IOwnProps {
   children?: any;
