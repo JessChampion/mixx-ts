@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-// import './section.css';
+import './searchForm.css';
 
 export interface ISearchFormComponentProps {
   submitSearch: any;

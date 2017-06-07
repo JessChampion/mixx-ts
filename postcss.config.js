@@ -2,16 +2,19 @@ module.exports = {
   parser: require('postcss-scss'),
   plugins: [
     require('postcss-smart-import')(),
-    require('postcss-css-variables')(),
+    require('postcss-custom-properties')(),
     require('precss')(),
     require('postcss-calc')(),
+    require('postcss-color-function')(),
+    require('postcss-normalize')(),
     require('postcss-font-magician')({
       hosted: ['./public/fonts', '/fonts'],
       variants: {
         'Permanent Marker': {
           '400': []
         },
-        'Quicksand': {
+        'Comfortaa': {
+          '300': [],
           '400': [],
           '700': []
         }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-// import './section.css';
+import './searchResults.css';
 
 export interface ISearchFormComponentProps {
   addSeedTrack: any;

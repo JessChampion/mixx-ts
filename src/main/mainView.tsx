@@ -48,11 +48,11 @@ export default class Main extends React.Component<any, any> {
   render() {
     return (
       <div className="mainView">
-        <div className="headerBar">
+        <header className="headerBar">
           <div className="header">
             <h1>MIX</h1>
           </div>
-        </div>
+        </header>
         <Section id="searchView" title="Add seed tracks">
           <SearchForm/>
           <SearchResults/>

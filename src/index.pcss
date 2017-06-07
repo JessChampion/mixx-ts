@@ -19,11 +19,53 @@ body {
   color: var(--colour-white);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Permanent Marker', 'Quicksand', Arial, sans-serif;
-  font-weight: bold;
+h1 {
+  font-size: 2.5rem;
+  font-family: 'Permanent Marker', Arial, sans-serif;
 }
 
-.header {
+h2, h3, h4, h5, h6 {
+  font-family: 'Comfortaa', Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+header {
+  padding: 0 0.75rem;
+  color: var(--colour-pink);
+  h1 {
+    margin: 0.5rem 0;
+  }
+}
+
+button, .button {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--colour-white);
+  border-radius: 0.25rem;
+  box-shadow: none;
+  background: var(--colour-black);
+  color: var(--colour-white);
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
+
+  &:active, &:hover, &.active {
+    box-shadow: 0 0 15px 1px color(var(--colour-white) a(75%));
+  }
+}
+
+input[type='text'] {
+  height: 2.25rem;
   padding: 0 0.5rem;
+  border: 2px solid var(--colour-white);
+  border-radius: 0.25rem;
+  background: var(--colour-white);
+  font-size: 1rem;
 }
