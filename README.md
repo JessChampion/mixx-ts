@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     *This will involve ejecting create-react-app so will put up with seperate configuration for now.*
 - Bring over original mix code.
     - ~~Router~~
-    - Section component
+    - ~~Section component~~
     - SearchForm
     - SearchResults
     - Seeds
@@ -18,11 +18,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Setup Store
 - Restore the store from storeage (lol.).
 - New Styling
-    - Login
+    - ~~Login~~
     - 404s
     - Main
         - Header
         - Section
+
+- Sections have open next functionality to push the user through the flow
 
 ## TECHNICAL DOCUMENTATION
 

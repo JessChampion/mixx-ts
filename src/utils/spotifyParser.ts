@@ -30,6 +30,5 @@ export function parseTracksResult(tracks: any) {
 // function parseThumbnailResults(id, response) {
 //   let imageUrl = getThumbnail(response).url;
 //   console.log(JSON.stringify(imageUrl));
-//   //noinspection TypeScriptValidateTypes
 //   store.dispatch(loadedThumbnail(id, imageUrl));
 // }

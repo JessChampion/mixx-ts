@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import store from '../store';
-import {makeRequest} from '../utils/Fetch';
-import {parseTracksResult} from '../utils/SpotifyParser';
+import {makeRequest} from '../utils/fetch';
+import {parseTracksResult} from '../utils/spotifyParser';
 
 const SEARCH = 'https://api.spotify.com/v1/search';
 

@@ -1,9 +1,11 @@
 import {combineReducers, createStore} from 'redux';
+import authReducer from './login/reducers';
 import mainReducer from './main/reducers';
 import searchReducer from './search/reducers';
-import {loadStateFromStore, saveStateToStore} from './utils/LocalStorage';
+import {loadStateFromStore, saveStateToStore} from './utils/localStorage';
 
 const rootReducer = combineReducers({
+  auth: authReducer,
   main: mainReducer,
   search: searchReducer
 });
