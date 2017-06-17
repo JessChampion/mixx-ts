@@ -20,7 +20,7 @@ body {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-family: 'Permanent Marker', Arial, sans-serif;
 }
 
@@ -38,8 +38,14 @@ h2 {
 header {
   padding: 0 0.75rem;
   color: var(--colour-pink);
+
   h1 {
-    margin: 0.5rem 0;
+    margin: 0.5rem 0.25rem;
+    letter-spacing: 0.2rem;
+
+    &::first-letter {
+      letter-spacing: -0.05rem;
+    }
   }
 }
 
@@ -62,9 +68,11 @@ button, .button {
 }
 
 input[type='text'] {
+  display: flex;
+  align-items: flex-start;
   height: 2.25rem;
-  padding: 0 0.5rem;
-  border: 2px solid var(--colour-white);
+  padding: 0.15rem 0.5rem;
+  border: none;
   border-radius: 0.25rem;
   background: var(--colour-white);
   font-size: 1rem;

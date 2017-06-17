@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import store from '../store';
-import {makeRequest} from '../utils/fetch';
+import {makeAuthenticatedRequest} from '../utils/fetch';
 import {parseTracksResult} from '../utils/spotifyParser';
 
 const SEARCH = 'https://api.spotify.com/v1/search';
@@ -9,10 +9,10 @@ const getTracks = R.path(['tracks', 'items']);
 const parseResults = R.compose(parseTracksResult, getTracks);
 
 const getUrl = (query: string) => SEARCH + '?q=' + encodeURI(query) + '&type=track';
-const search = R.compose(makeRequest, getUrl);
 
 const doSpotifySearch = (query: string) => {
-  search(query).then((data) => {
+  const token = store.getState().auth.token;
+  makeAuthenticatedRequest(getUrl(query), token).then((data) => {
     data = parseResults(data);
     console.log('DATA: ' + JSON.stringify(data));
     store.dispatch(searchResults(data));

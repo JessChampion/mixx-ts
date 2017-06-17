@@ -16,7 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     - Playlist
     - SavePlaylist
 - Setup Store
-- Restore the store from storeage (lol.).
+- Restore the store from storage (lol.).
 - New Styling
     - ~~Login~~
     - 404s

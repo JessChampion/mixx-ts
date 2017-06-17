@@ -1,5 +1,6 @@
 import * as R from 'ramda';
 import store from '../store';
+import {makeAuthenticatedRequest} from '../utils/fetch';
 
 const CLIENT = 'dc741732cf0245dea66f6d4a47a65f06';
 const AUTH = 'https://accounts.spotify.com/authorize';
@@ -38,25 +39,12 @@ const doLogin = async () => {
 };
 
 async function getCurrentUserDetails(token: string) {
-  const request = new Request(USER, {
-    headers: new Headers({
-      'Authorization': 'Bearer ' + token,
-      'Content-Type': 'application/json'
-    })
-  });
-  const response: any = await fetch(request);
-  if (response.status >= 400) {
-    console.log(JSON.stringify(response));
-    throw new Error('Bad response from server: ' + JSON.stringify(response));
-  }
-  const data = await response.json();
+  const data = await makeAuthenticatedRequest(USER, token);
   store.dispatch(recievedUser(data));
 }
 
 function loggedIn(params: string) {
   const response: any = splitParams(params);
-  console.log('response');
-  console.log(response);
   const token: string = response.access_token;
   const expires: number = getExpiryFrom(response.expires_in);
   return {

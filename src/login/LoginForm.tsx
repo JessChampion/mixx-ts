@@ -3,7 +3,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 
 import {loggedInWithSpotify, login} from './actions';
-import LoginFormComponent from './components/LoginFormComponent';
+import LoginFormComponent from './LoginFormComponent';
 
 const getTokenAndExpiry = R.pickAll(['token', 'expires']);
 const getHasUser = R.compose(R.objOf('hasUser'), R.not, R.isNil, R.prop('user'));

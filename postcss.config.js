@@ -3,6 +3,7 @@ module.exports = {
   plugins: [
     require('postcss-smart-import')(),
     require('postcss-custom-properties')(),
+    require('postcss-custom-media')(),
     require('precss')(),
     require('postcss-calc')(),
     require('postcss-color-function')(),
