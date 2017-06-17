@@ -15,14 +15,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     - CreateButton
     - Playlist
     - SavePlaylist
-- Setup Store
+- ~~Setup Store~~
 - Restore the store from storage (lol.).
+- Redirect to login when token is expired
 - New Styling
     - ~~Login~~
     - 404s
     - Main
         - Header
-        - Section
+        - ~~Section~~
 
 - Sections have open next functionality to push the user through the flow
 

@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import store from '../store';
-import {makeAuthenticatedRequest} from '../utils/fetch';
+import {makeRequestWithToken} from '../utils/fetch';
 import {parseTracksResult} from '../utils/spotifyParser';
 
 const SEARCH = 'https://api.spotify.com/v1/search';
@@ -12,7 +12,7 @@ const getUrl = (query: string) => SEARCH + '?q=' + encodeURI(query) + '&type=tra
 
 const doSpotifySearch = (query: string) => {
   const token = store.getState().auth.token;
-  makeAuthenticatedRequest(getUrl(query), token).then((data) => {
+  makeRequestWithToken(getUrl(query), token).then((data) => {
     data = parseResults(data);
     console.log('DATA: ' + JSON.stringify(data));
     store.dispatch(searchResults(data));

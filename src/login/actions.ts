@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import store from '../store';
-import {makeAuthenticatedRequest} from '../utils/fetch';
+import {makeRequestWithToken} from '../utils/fetch';
 
 const CLIENT = 'dc741732cf0245dea66f6d4a47a65f06';
 const AUTH = 'https://accounts.spotify.com/authorize';
@@ -39,7 +39,7 @@ const doLogin = async () => {
 };
 
 async function getCurrentUserDetails(token: string) {
-  const data = await makeAuthenticatedRequest(USER, token);
+  const data = await makeRequestWithToken(USER, token);
   store.dispatch(recievedUser(data));
 }
 
