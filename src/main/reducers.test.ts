@@ -11,7 +11,7 @@ const existingState = {
   }
 };
 
-describe('registerSection', () => {
+describe('Register section reducer', () => {
   it('adds a section to the state', () => {
     const action = {
       sectionId: testId,
@@ -49,7 +49,7 @@ describe('registerSection', () => {
   });
 });
 
-describe('toggleSection', () => {
+describe('Toggle section reducer', () => {
   it('toggles an existing sections expanded state', () => {
     const action = {
       sectionId: testId,

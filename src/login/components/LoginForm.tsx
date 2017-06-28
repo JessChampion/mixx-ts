@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {loggedInWithSpotify, login} from './actions';
+import {loggedInWithSpotify, login} from '../actions';
 import LoginFormComponent from './LoginFormComponent';
 
 const getTokenAndExpiry = R.pickAll(['token', 'expires']);

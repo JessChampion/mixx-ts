@@ -26,21 +26,23 @@ const setup = (expandedState: boolean, store?: any) => {
   );
 };
 
-it('renders without crashing', () => {
-  const underTest = setup(true).find('section');
-  expect(underTest.length).toBeGreaterThan(0);
-});
+describe('Section component', () => {
+  it('renders without crashing', () => {
+    const underTest = setup(true).find('section');
+    expect(underTest.length).toBeGreaterThan(0);
+  });
 
-it('renders title', () => {
-  const underTest = setup(true).find('section');
-  const title = underTest.find('h2');
-  expect(title.text()).toEqual(testProps.title);
-});
+  it('renders title', () => {
+    const underTest = setup(true).find('section');
+    const title = underTest.find('h2');
+    expect(title.text()).toEqual(testProps.title);
+  });
 
-it('renders children as content', () => {
-  const section = setup(true).find('section');
-  const sectionBody = section.children().last();
-  expect(sectionBody.hasClass('section-body')).toBeTruthy();
-  const content = sectionBody.children().last();
-  expect(content.text()).toEqual('Text Content');
+  it('renders children as content', () => {
+    const section = setup(true).find('section');
+    const sectionBody = section.children().last();
+    expect(sectionBody.hasClass('section-body')).toBeTruthy();
+    const content = sectionBody.children().last();
+    expect(content.text()).toEqual('Text Content');
+  });
 });

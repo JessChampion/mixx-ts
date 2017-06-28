@@ -17,20 +17,22 @@ const setup = (store?: any) => {
   );
 };
 
-it('renders without crashing', () => {
-  const underTest = setup();
-  const main = underTest.find('Main');
-  expect(main.length).toBeGreaterThan(0);
-});
+describe('Main view', () => {
+  it('renders without crashing', () => {
+    const underTest = setup();
+    const main = underTest.find('Main');
+    expect(main.length).toBeGreaterThan(0);
+  });
 
-it('renders header', () => {
-  const underTest = setup();
-  const main = underTest.find('Main');
-  expect(main.children().first().hasClass('headerBar')).toBeTruthy();
-});
+  it('renders header', () => {
+    const underTest = setup();
+    const main = underTest.find('Main');
+    expect(main.children().first().hasClass('headerBar')).toBeTruthy();
+  });
 
-it('renders sections', () => {
-  const underTest = setup();
-  const sections = underTest.find('Section');
-  expect(sections.length).toBeGreaterThan(0);
+  it('renders sections', () => {
+    const underTest = setup();
+    const sections = underTest.find('Section');
+    expect(sections.length).toBeGreaterThan(0);
+  });
 });

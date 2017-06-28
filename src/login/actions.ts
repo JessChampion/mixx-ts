@@ -33,17 +33,17 @@ const getLoginURL = () => {
   return AUTH + '?' + encodeURI(params);
 };
 
-const doLogin = async () => {
+const doLogin = () => {
   console.log('Redirect to login with spotify');
-  window.location.href = getLoginURL();
+  window.location.assign(getLoginURL());
 };
 
-async function getCurrentUserDetails(token: string) {
+const getCurrentUserDetails = async (token: string) => {
   const data = await makeRequestWithToken(USER, token);
   store.dispatch(recievedUser(data));
-}
+};
 
-function loggedIn(params: string) {
+const loggedIn = (params: string) => {
   const response: any = splitParams(params);
   const token: string = response.access_token;
   const expires: number = getExpiryFrom(response.expires_in);
@@ -51,11 +51,11 @@ function loggedIn(params: string) {
     expires,
     token
   };
-}
+};
 
 export const LOGIN = 'LOGIN';
 export function login() {
-  doLogin(); // TODO is there a nicer way to do this than using timeout
+  doLogin();
   return {
     type: LOGIN
   };

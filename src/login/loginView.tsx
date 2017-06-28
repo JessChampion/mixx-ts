@@ -1,6 +1,6 @@
 ﻿import * as React from 'react';
-import './login.css';
-import LoginForm from './LoginForm';
+import './components/login.css';
+import LoginForm from './components/LoginForm';
 
 export default class Login extends React.Component<any, any> {
   render() {
