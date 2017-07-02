@@ -1,5 +1,4 @@
 import * as R from 'ramda';
-import store from '../store';
 import {makeRequestWithToken} from '../utils/fetch';
 
 const CLIENT = 'dc741732cf0245dea66f6d4a47a65f06';
@@ -39,8 +38,7 @@ const doLogin = () => {
 };
 
 const getCurrentUserDetails = async (token: string) => {
-  const data = await makeRequestWithToken(USER, token);
-  store.dispatch(recievedUser(data));
+  return await makeRequestWithToken(USER, token);
 };
 
 const loggedIn = (params: string) => {
@@ -53,6 +51,24 @@ const loggedIn = (params: string) => {
   };
 };
 
+const processLogin = async (location: string, hasUser: boolean) => {
+  const {token, expires} = loggedIn(location);
+  if (!hasUser) {
+    // TODO: refactor make this async so that it waits for user details then updates the auth state with token and user
+    const user = await getCurrentUserDetails(token);
+    // if no user then getCurrentUserDetails
+    return {
+      expires,
+      token,
+      user
+    };
+  }
+  return {
+    expires,
+    token,
+  };
+};
+
 export const LOGIN = 'LOGIN';
 export function login() {
   doLogin();
@@ -61,25 +77,18 @@ export function login() {
   };
 }
 
-export const LOGGED_IN_WITH_SPOTIFY = 'LOGGED_IN_WITH_SPOTIFY';
-export function loggedInWithSpotify(location: string, hasUser: boolean) {
-  const {token, expires} = loggedIn(location);
-  if (!hasUser) {
-    getCurrentUserDetails(token); // TODO is there a nicer way to do this than using timeout
-  }
-  // if no user then getCurrentUserDetails
+export const LOGIN_RECIEVED = 'LOGIN_RECIEVED';
+export function loginReceieved(hasUser: boolean) {
   return {
-    expires,
     hasUser,
-    token,
-    type: LOGGED_IN_WITH_SPOTIFY
+    type: LOGIN_RECIEVED
   };
 }
 
-export const RECIEVED_USER = 'RECIEVED_USER';
-export function recievedUser(user: any) {
+export const LOGGED_IN_WITH_SPOTIFY = 'LOGGED_IN_WITH_SPOTIFY';
+export function loggedInWithSpotify(location: string, hasUser: boolean) {
   return {
-    type: RECIEVED_USER,
-    user
+    payload: processLogin(location, hasUser),
+    type: LOGGED_IN_WITH_SPOTIFY
   };
 }

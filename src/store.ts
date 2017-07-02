@@ -1,4 +1,6 @@
-import {combineReducers, createStore} from 'redux';
+import {applyMiddleware, combineReducers, createStore} from 'redux';
+import * as promiseMiddleware from 'redux-promise';
+
 import authReducer from './login/reducers';
 import mainReducer from './main/reducers';
 import searchReducer from './search/reducers';
@@ -14,7 +16,8 @@ const initialState = loadStateFromStore() || {};
 
 const store = createStore(
   rootReducer,
-  initialState
+  initialState,
+  applyMiddleware(promiseMiddleware)
 );
 
 store.subscribe(() => {

@@ -1,13 +1,14 @@
+import {mount} from 'enzyme';
 import * as R from 'ramda';
 import * as React from 'react';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
-import {mount} from 'enzyme';
 
+import {LOGGED_IN_WITH_SPOTIFY, LOGIN, LOGIN_RECIEVED} from '../actions';
 import LoginForm from './LoginForm';
-import {LOGGED_IN_WITH_SPOTIFY, LOGIN} from '../actions';
 
 const getActions = R.compose(R.call, R.path(['node', 'store', 'getActions']));
+const findActionByType = (type: string) => R.find(R.propEq('type', type));
 const mockStore = configureStore([]);
 const defaultProps = {
   history: [],
@@ -40,7 +41,8 @@ describe('Login form', () => {
     const LoginFormComponent = underTest.find('LoginFormComponent');
     let actions = getActions(underTest);
     expect(actions.length).toBe(0);
-    LoginFormComponent.props().loginWithSpotify();
+    const loginProps: any = LoginFormComponent.props();
+    loginProps.loginWithSpotify();
     actions = getActions(underTest);
     expect(actions.length).toBe(1);
     expect(actions[0].type).toBe(LOGIN);
@@ -59,10 +61,11 @@ describe('Login form', () => {
     };
     const underTest = setup(testProps, testInitialState);
     const actions = getActions(underTest);
-    console.log(actions);
-    expect(actions.length).toBe(1);
-    expect(actions[0].type).toBe(LOGGED_IN_WITH_SPOTIFY);
-    expect(actions[0].token).toBe('BQCNLPOZ');
-    expect(actions[0].hasUser).toBe(true);
+    expect(actions.length).toBe(2);
+    expect(findActionByType(LOGIN_RECIEVED)(actions)).toEqual({hasUser: true, type: 'LOGIN_RECIEVED'});
+    expect(findActionByType(LOGGED_IN_WITH_SPOTIFY)(actions)).toEqual({
+      payload: expect.any(Promise),
+      type: 'LOGGED_IN_WITH_SPOTIFY'
+    });
   });
 });

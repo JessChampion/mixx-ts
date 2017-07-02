@@ -9,7 +9,7 @@ import Login from './loginView';
 const mockStore = configureStore([]);
 
 const setup = () => {
-  const store = mockStore({auth: {}});
+  const store: any = mockStore({auth: {}});
   return mount(
     <Provider store={store}>
       <Login/>

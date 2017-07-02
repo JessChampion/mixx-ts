@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {loggedInWithSpotify, login} from '../actions';
+import {loggedInWithSpotify, login, loginReceieved} from '../actions';
 import LoginFormComponent from './LoginFormComponent';
 
 const getTokenAndExpiry = R.pickAll(['token', 'expires']);
@@ -16,6 +16,7 @@ const mapStateToProps = (state: any, ownProps: any) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     onLoginReceived: (params: any, hasUser: boolean) => {
+      dispatch(loginReceieved(hasUser));
       dispatch(loggedInWithSpotify(params, hasUser));
     },
     onLoginRequest: () => {

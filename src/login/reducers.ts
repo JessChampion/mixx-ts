@@ -2,27 +2,8 @@ import * as R from 'ramda';
 
 import {
   LOGGED_IN_WITH_SPOTIFY,
-  RECIEVED_USER,
+  LOGIN_RECIEVED,
 } from './actions';
-
-const defaultState = {
-  requesting: false,
-  token: '',
-  user: null
-};
-
-const setRequesting: any = R.assoc('requesting');
-const setUser: any = R.compose(R.assoc('user') as any, R.prop('user'));
-const getRequestingUser: any = R.compose(setRequesting, R.not, R.prop('hasUser'));
-const getTokenDetails = R.pickAll(['expires', 'token']);
-const getRequestingState = (state: any, action: any) => {
-  return R.merge(
-    getRequestingUser(action)(state),
-    getTokenDetails(action));
-};
-const setUserState = (state: any, action: any) => {
-  return R.compose(setRequesting(false), setUser(action))(state);
-};
 
 export interface IAuthState {
   requesting: boolean;
@@ -31,13 +12,44 @@ export interface IAuthState {
   expires?: number;
 }
 
+export interface ITokenState {
+  token: string;
+  expires: number;
+}
+
+const defaultState = {
+  requesting: false,
+  token: '',
+  user: null
+};
+
+const hasUser = R.compose(R.has('user'), R.prop('payload'));
+const getTokenDetails = R.compose(R.pickAll(['expires', 'token']), R.prop('payload'));
+const setLoggedinState = (state: any, action: any) => {
+  const spec = {
+    requesting: R.F,
+    user: R.ifElse(hasUser, R.path(['payload', 'user']), R.always(R.prop('user')(state)))
+  };
+  return R.converge(R.merge, [R.applySpec(spec), getTokenDetails])(action) as IAuthState;
+};
+
+// const state = "{\"requesting\":false,\"token\":\"\",\"user\":null}";
+// const action = {"hasUser":false,"type":"LOGIN_RECIEVED"};
+
+const getHasUser = R.prop('hasUser');
+const isRequesting = (action: any) => R.compose(R.not, getHasUser)(action);
+const setRequestingState = (state: IAuthState, action: any) => {
+  return R.assoc('requesting', isRequesting(action))(state);
+};
+
 export default function authReducer(state: IAuthState = defaultState, action: any): IAuthState {
+  console.log(action); // { hasUser: false, type: 'LOGIN_RECIEVED' }
   switch (action.type) {
     case LOGGED_IN_WITH_SPOTIFY: {
-      return getRequestingState(state, action) as IAuthState;
+      return setLoggedinState(state, action);
     }
-    case RECIEVED_USER: {
-      return setUserState(state, action) as IAuthState;
+    case LOGIN_RECIEVED: {
+      return setRequestingState(state, action);
     }
   }
   return state;
