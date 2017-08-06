@@ -13,9 +13,8 @@ export default class SearchResultsComponent extends React.Component<ISearchFormC
   renderLoading() {
     return (
       <div className="searchResults">
-        <h2 className="heading">Add seed tracks</h2>
         <div className="resultsHolder">
-          <div>loading...</div>
+          <div className="loadingIndicator">loading...</div>
         </div>
       </div>
     );
@@ -55,7 +54,7 @@ export default class SearchResultsComponent extends React.Component<ISearchFormC
     if (loading) {
       content = this.renderLoading();
     }
-    if (data) {
+    if (data.length > 0) {
       content = this.renderResults(data);
     }
 

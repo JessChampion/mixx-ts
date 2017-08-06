@@ -6,7 +6,7 @@ import LoginFormComponent from './LoginFormComponent';
 describe('Login form component', () => {
   it('renders the login form', () => {
     const component = shallow(
-      <LoginFormComponent loginWithSpotify="()=> 'hi'"/>
+      <LoginFormComponent loginWithSpotify={jest.fn()}/>
     );
     const button = component.find('button');
     expect(button.length).toEqual(1);
