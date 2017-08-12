@@ -56,7 +56,7 @@ describe('Search form component', () => {
     results.map((result, index) => {
       result.simulate('click');
       expect(mockEventHandler).toHaveBeenCalledTimes(index + 1);
-      const params = R.path(['mock', 'calls', index, 0])(mockEventHandler);
+      const params: any = R.path(['mock', 'calls', index, 0])(mockEventHandler);
       expect(params.name).toEqual(testData[index].name);
       expect(params.artist).toEqual(testData[index].artist);
     });

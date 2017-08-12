@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-// import {registerSection, toggleSection} from '../actions';
+import {addSeed} from '../settings/actions';
 import SearchResultsComponent from './components/SearchResultsComponent';
 
 interface IOwnProps {
@@ -27,7 +27,7 @@ const mapStateToProps = (state: any) => getStateProps(state) as IStateProps;
 const mapDispatchToProps = (dispatch: any) => {
   return {
     addSeedTrack: (result: any) => {
-      // dispatch(addSeed(result));
+      dispatch(addSeed(result));
       console.log('Add seed: ' + result);
     },
   };

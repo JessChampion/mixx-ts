@@ -42,6 +42,7 @@ import './mainView.css';
 
 import SearchForm from '../search/SearchForm';
 import SearchResults from '../search/SearchResults';
+import Seeds from '../settings/Seeds';
 import Section from './components/Section';
 
 export default class Main extends React.Component<any, any> {
@@ -56,6 +57,9 @@ export default class Main extends React.Component<any, any> {
         <Section id="searchView" title="Add seed tracks">
           <SearchForm/>
           <SearchResults/>
+        </Section>
+        <Section id="seedTracks" title="Seed tracks">
+          <Seeds/>
         </Section>
       </div>
     );
