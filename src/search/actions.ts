@@ -10,6 +10,13 @@ const parseResults = R.compose(parseTracksResult, getTracks);
 
 const getUrl = (query: string) => SEARCH + '?q=' + encodeURI(query) + '&type=track';
 
+const searchResults = (data: any) => {
+  return {
+    data,
+    type: SEARCH_RESULTS
+  };
+};
+
 const doSpotifySearch = (query: string) => {
   const token = store.getState().auth.token;
   makeRequestWithToken(getUrl(query), token).then((data) => {
@@ -28,9 +35,3 @@ export function searchSpotify(query: string) {
 }
 
 export const SEARCH_RESULTS = 'SEARCH_RESULTS';
-export function searchResults(data: any) {
-  return {
-    data,
-    type: SEARCH_RESULTS
-  };
-}

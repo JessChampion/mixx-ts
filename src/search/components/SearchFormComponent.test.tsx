@@ -37,12 +37,9 @@ describe('Search form component', () => {
     component.setState({query: searchTerm});
     const button = component.find('button');
     button.simulate('click', {
-      preventDefault: () => {
-      }
+      preventDefault: () => null
     });
     expect(mockEventHandler).toHaveBeenCalled();
     expect(mockEventHandler).toHaveBeenCalledWith(searchTerm);
   });
 });
-})
-;

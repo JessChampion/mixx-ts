@@ -60,6 +60,12 @@
     "> 1% in NZ"
   ],
   "jest": {
+    "coveragePathIgnorePatterns" : [
+      "/node_modules/",
+      "/src/index.tsx",
+      "/src/registerServiceWorker.ts",
+      "/src/store.ts"
+    ],
     "globals": {
       "widow": true
     },
