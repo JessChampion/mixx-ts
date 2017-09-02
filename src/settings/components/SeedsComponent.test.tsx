@@ -39,11 +39,12 @@ describe('Search form component', () => {
       imageUrl: 'test/url.img',
       name: 'test track',
     }];
-    const component = shallow(
+    const component: any = shallow(
       <SeedsComponent seeds={testSeeds} removeSeed={jest.fn()}/>
     );
     const backgroundImage = component.find('.seed').nodes[0].props.style.backgroundImage;
-    expect(backgroundImage).toEqual('url('+testSeeds[0].imageUrl+')');
+    const expected = 'url(' + testSeeds[0].imageUrl + ')';
+    expect(backgroundImage).toEqual(expected);
   });
 
   it('dispatches a removeSeed action when each track is clicked', () => {

@@ -13,7 +13,7 @@ const setup = (resonse: any, status: number = 200) => {
 
 const testURL = 'http://test.com';
 const testToken = 'TOKEN';
-const testResponse = { test: {response: 2}};
+const testResponse = {test: {response: 2}};
 
 describe('makeRequestWithToken', () => {
   it('should make a successful request', async () => {
@@ -27,7 +27,7 @@ describe('makeRequestWithToken', () => {
     let error;
     try {
       await subject.makeRequestWithToken(testURL, testToken);
-    } catch (e){
+    } catch (e) {
       error = e;
     }
     expect(error).toEqual(new Error('Bad response from server: {"status":404}'));

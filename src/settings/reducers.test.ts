@@ -1,8 +1,7 @@
 import * as R from 'ramda';
 
-import {ADD_SEED, REMOVE_SEED} from './actions';
+import {ADD_SEED, LOAD_THUMBNAIL, REMOVE_SEED} from './actions';
 import settingsReducer from './reducers';
-
 const testTracks = [
   {id: 1234},
   {id: 2345},
@@ -133,4 +132,36 @@ describe('Remove seed reducer', () => {
     expect(result.seeds).toEqual(initialSeeds);
   });
 
+});
+
+describe('Loaded thumbnail reducer', () => {
+  it('should do nothing if their no seed with the given id', () => {
+    const testTrack = testTracks[0];
+    const action = {
+      id: testTrack.id,
+      imageUrl: 'some/url.img',
+      type: LOAD_THUMBNAIL
+    };
+    const initialState = {
+      seedError: '',
+      seeds: [testTracks[1]]
+    };
+    const result = settingsReducer(initialState, action);
+    expect(result).toEqual(initialState);
+  });
+
+  it('should add the url to the correct seed', () => {
+    const testTrack = testTracks[1];
+    const action = {
+      id: testTrack.id,
+      imageUrl: 'some/url.img',
+      type: LOAD_THUMBNAIL
+    };
+    const initialState = {
+      seedError: '',
+      seeds: R.take(3, testTracks)
+    };
+    const result = settingsReducer(initialState, action);
+    expect(result.seeds[1]).toEqual({id: 2345, imageUrl: 'some/url.img'});
+  });
 });

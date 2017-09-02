@@ -9,14 +9,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Bring over original mix code.
     - ~~Router~~
     - ~~Section component~~
-    - ~SearchForm~
-    - ~SearchResults~
-    - Seeds
+    - ~~SearchForm~~
+    - ~~SearchResults~~
+    - Seeds - __in progress__
     - CreateButton
     - Playlist
     - SavePlaylist
 - ~~Setup Store~~
-- ~Restore the store from storage (lol.).~
+- ~~Restore the store from storage (lol.).~~
 - Redirect to login when token is expired
 - New Styling
     - ~~Login~~
@@ -24,7 +24,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     - Main
         - Header
         - ~~Section~~
-
+- Editable parameters:
+    - Include seeds
+    - Length
+    - Popularity
 - Add seed from my library
 - Sections have open next functionality to push the user through the flow
 

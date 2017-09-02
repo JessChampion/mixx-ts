@@ -1,7 +1,6 @@
 import * as R from 'ramda';
 
-import {ADD_SEED} from './actions';
-import {REMOVE_SEED} from './actions';
+import {ADD_SEED, LOAD_THUMBNAIL, REMOVE_SEED} from './actions';
 
 export interface ISettingsState {
   seeds: any[];
@@ -50,6 +49,13 @@ const removeSeed = (state: any, action: any) => {
     seeds: removeById(action.id)(state.seeds)
   };
 };
+const addThumbnailToSeed = (state: any, action: any) => {
+  const index: number = findIndexById(action.id, state.seeds);
+  if (index >= 0) {
+    return R.assocPath(['seeds', index, 'imageUrl'], action.imageUrl)(state);
+  }
+  return state;
+};
 
 const settingsReducer = (state: ISettingsState = defaultState, action: any): ISettingsState => {
   switch (action.type) {
@@ -58,6 +64,9 @@ const settingsReducer = (state: ISettingsState = defaultState, action: any): ISe
     }
     case REMOVE_SEED: {
       return removeSeed(state, action);
+    }
+    case LOAD_THUMBNAIL: {
+      return addThumbnailToSeed(state, action);
     }
   }
   return state;

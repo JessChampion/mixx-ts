@@ -1,6 +1,6 @@
 import * as fetch from 'isomorphic-fetch';
 
-export const _fetch = async (request: Request) => {
+export const _fetch = async (request: Request | string) => {
   return fetch(request);
 };
 
